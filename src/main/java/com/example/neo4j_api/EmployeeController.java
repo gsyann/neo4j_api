@@ -51,7 +51,7 @@ public class EmployeeController {
 
 
     @GetMapping(path = "/allnodes", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String returnGetResponse(@RequestParam(value = "uri", defaultValue = uri) String uri, @RequestParam(value = "user", defaultValue = username) String user, @RequestParam(value = "password", defaultValue = password) String password) {
+    public String returnGetResponse(@RequestParam(value = "uri", defaultValue = "bolt://3.216.9.216:7687") String uri, @RequestParam(value = "user", defaultValue = "neo4j") String user, @RequestParam(value = "password", defaultValue = "checkpoint-dam-arrays") String password) {
         Driver driver = GraphDatabase.driver(uri, AuthTokens.basic(user, password));
         String result = returnAll(driver);
         return result;
